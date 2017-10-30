@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, json
+from flask import Flask, json
 import requests
 from datetime import datetime
 
