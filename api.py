@@ -11,6 +11,9 @@ URL = 'http://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=c00adc1
 @app.route('/weather/london/<date>/<time>/', methods=['GET'])
 @app.route('/weather/london/<date>/<time>/<category>/', methods=['GET'])
 def get_weather(date, time, category=None):
+    """ Both endpoints map over the same function for simplicity.
+    It formats the date & time then gets the data from openweather api.
+    Parses json for the forcast and then builds the appropriate response."""
     format_date = datetime.strptime(date, '%Y%m%d').strftime('%Y-%m-%d')
     format_time = datetime.strptime(time, '%H%M%S').strftime('%H:%M:%S')
     target_date = format_date + " " + format_time
